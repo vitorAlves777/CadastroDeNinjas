@@ -15,7 +15,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-    private List<MissaoModel> missoes;
+    // ManyToOne um ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn( name = "missao_id") // Foreing Key ou chave estrangeira
+    private MissaoModel missao;
 
     public NinjaModel() {
     }
@@ -25,6 +28,8 @@ public class NinjaModel {
         this.email = email;
         this.idade = idade;
     }
+
+
 
     public String getNome() {
         return nome;
